@@ -16,14 +16,12 @@ describe('fetchBreedDescription', () => {
     });
   });
   it('returns an error messsage when the breed does not exist', (done) => {
-    fetchBreedDescription('Siberian', (err, desc) => {
-      // we expect no error for this scenario
-      assert.equal(null, err);
-
-      const expectedDesc = "The Siberians dog like temperament and affection makes the ideal lap cat and will live quite happily indoors. Very agile and powerful, the Siberian cat can easily leap and reach high places, including the tops of refrigerators and even doors. ";
+    fetchBreedDescription('Mouse', (err, desc) => {
+      // we expect an error for this scenario
+      assert.equal(err, "Cat breed does not exist");
 
       // compare returned description
-      assert.equal(expectedDesc, desc);
+      assert.equal(null, desc);
 
       done();
     });
